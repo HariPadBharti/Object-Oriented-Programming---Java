@@ -1,27 +1,3 @@
-//Day 1
-
-
-public class Solution {
-	public static void main(String[] args) {
-        // Create a Scanner object to read input from stdin.
-		Scanner scan = new Scanner(System.in); 
-		
-		// Read a full line of input from stdin and save it to our variable, inputString.
-		String inputString = scan.nextLine(); 
-
-		// Close the scanner object, because we've finished reading 
-        // all of the input from stdin needed for this challenge.
-		scan.close(); 
-      
-		// Print a string literal saying "Hello, World." to stdout.
-		System.out.println("Hello, World.");
-      
-	    // TODO: Write a line of code here that prints the contents of inputString to stdout.
-        System.out.print(inputString);
-	}
-}
-
-
 //Day 2
 
 import java.io.*;
@@ -62,29 +38,6 @@ public class Solution {
     }
 }
 
-//Day 3
-
-import java.util.*;
-import java.math.*;
-
-public class Arithmetic {
-
-    public static void main(String[] args) {
-        Scanner scan = new Scanner(System.in);
-        double mealCost = scan.nextDouble(); // original meal price
-        int tipPercent = scan.nextInt(); // tip percentage
-        int taxPercent = scan.nextInt(); // tax percentage
-        scan.close();
-      
-        // Write your calculation code here.
-      mealCost += (((mealCost * tipPercent)/100) + ((mealCost * taxPercent)/100));
-        // cast the result of the rounding operation to an int and save it as totalCost 
-        int totalCost = (int) Math.round(mealCost);
-      
-        // Print your result
-        System.out.print("The total meal cost is " + totalCost +" dollars.");
-    }
-}
 
 
 
