@@ -1,0 +1,10 @@
+Scan variable !
+Scanner scan = new Scanner(System.in);
+
+
+scan.next(); // returns the next token of input
+scan.hasNext(); // returns true if there is another token of input (false otherwise)
+scan.nextLine() // returns the next LINE of input
+scan.hasNextLine(); // returns true if there is another line of iput
+
+scan.close();
