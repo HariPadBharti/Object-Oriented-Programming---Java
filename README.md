@@ -1,3 +1,3 @@
 # Object-Oriented-Programming-Java
 
-#30 days Challange on Hacker Earth. Work on Java 8. 
+#30 days Challange on HackerRank using Java 8. 
