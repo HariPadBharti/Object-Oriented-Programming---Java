@@ -1,0 +1,20 @@
+
+-------------------------------------------------------------------------------------
+
+Day 3
+
+v = c ? a : b;
+
+switch (condition) {
+    case val0: 	behavior0;
+                break;
+    case val1:	behavior1;
+                break;
+    case val2:	behavior2;
+                break;
+    default: 	behavior;
+                break;
+}
+
+-------------------------------------------------------------------------------------
+
