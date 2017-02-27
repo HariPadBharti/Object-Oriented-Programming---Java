@@ -1,0 +1,33 @@
+
+
+// Day 7 Arrays
+
+// the number of elements we want to hold
+final int _arraySize = 4; 
+
+// our array declaration
+String[] stringArray = new String[_arraySize]; 
+
+for(int i = 0; i < _arraySize; i++) {
+    // assign value to index i
+    stringArray[i] = "This is stored in index " + i; 
+    
+    // print value saved in index i
+    System.out.println(stringArray[i]); 
+}
+
+Note: The final keyword used in the code above is a means of protecting the variable's value by locking it to its initialized value. Any attempt to reassign (overwrite) the value of a final variable will generate an error.
+
+
+ Scanner in = new Scanner(System.in);
+        int n = in.nextInt();
+        int[] arr = new int[n];
+        for(int i=0; i < n; i++){
+            arr[i] = in.nextInt();
+        }
+        in.close();
+
+
+        use in.close 
+
+
