@@ -1,0 +1,17 @@
+
+//Day 10 Binary Numbers
+
+Binary to Decimal Conversion
+
+To convert an integer from decimal to binary, repeatedly divide your base- number, , by . The dividend at each step  should be the result of the integer division at each step . The remainder at each step of division is a single digit of the binary equivalent of ; if you then read each remainder in order from the last remainder to the first (demonstrated below), you have the entire binary number.
+For example: . After performing the steps outlined in the above paragraph, the remainders form  (the binary equivalent of ) when read from the bottom up:
+ 
+ 
+This can be expressed in pseudocode as:
+while(n > 0):
+    remainder = n%2;
+    n = n/2;
+    Insert remainder to front of a list or push onto a stack
+
+Print list or stack
+
