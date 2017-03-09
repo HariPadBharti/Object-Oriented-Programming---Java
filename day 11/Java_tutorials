@@ -1,0 +1,294 @@
+Scan variable !
+Scanner scan = new Scanner(System.in);
+
+
+scan.next(); // returns the next token of input
+scan.hasNext(); // returns true if there is another token of input (false otherwise)
+scan.nextLine() // returns the next LINE of input
+scan.hasNextLine(); // returns true if there is another line of iput
+
+scan.close();
+
+
+-------------------------------------------------------------------------------------
+a b c
+d e
+f
+g
+
+The breakdown below shows how a certain sequence of calls to a Scanner object, , will read the above input:
+A call to scan.next(); returns the next token, a.
+A call to scan.next(); returns the next token, b.
+A call to scan.nextLine(); returns the next token, c. It's important to note that the scanner returns a space and a letter, because it's reading from the end of the last token until the beginning of the next line.
+A call to scan.nextLine(); returns the contents of the next line, d e.
+A call to scan.next(); returns the next token, f.
+A call to scan.nextLine(); returns everything after f until the beginning of the next line; because there are no characters there, it returns an empty String.
+A call to scan.nextLine(); returns g.
+-------------------------------------------------------------------------------------
+
+Day 3
+
+v = c ? a : b;
+
+switch (condition) {
+    case val0: 	behavior0;
+                break;
+    case val1:	behavior1;
+                break;
+    case val2:	behavior2;
+                break;
+    default: 	behavior;
+                break;
+}
+
+-------------------------------------------------------------------------------------
+
+Day 4 Class Vs Instance
+
+Each class has two types of variables: class variables and instance variables; class variables point to the same (static) variable across all instances of a class, and instance variables have distinct values that vary from instance to instance.
+
+Creates an instance of a class (i.e.: calling the Dog constructor creates an instance of Dog). A class can have one or more constructors that build different versions of the same type of object. A constructor with no parameters is called a default constructor; it creates an object with default initial values specified by the programmer. A constructor that takes one or more parameters (i.e.: values in parentheses) is called a parameterized constructor. Many languages allow you to have multiple constructors, provided that each constructor takes different types of parameters; these are called overloaded constructors.
+
+class Dog{ // class name
+    static String unnamed = "I need a name!"; // class variable
+    int weight; // instance variable
+    String name; // instance variable
+    String coatColor; // instance variable
+    
+    Dog(){ // default constructor
+        this.weight = 0;
+        this.name = unnamed;
+        this.coatColor = "none";
+    }
+    Dog(int weight, String color){ // parameterized constructor
+        // initialize instance variables
+        this.weight = weight; // assign parameter's value to instance variable
+        this.name = unnamed; 
+        this.coatColor = color; 
+    }
+    Dog(String dogName, String color){ // overloaded parameterized constructor
+        // initialize instance variables
+        this.weight = 0;
+        this.name = dogName; 
+        this.coatColor = color; 
+    }
+}
+
+
+Most classes will have methods called getters and setters that get (return) or set the values of its instance variables. Standard getter/setter syntax:
+class MyClass{
+    dataType instanceVariable;
+    ...
+    void setInstanceVariable(int value){
+        this.instanceVariable = value;
+    }
+    dataType getInstanceVariable(){
+        return instanceVariable;
+    }
+}
+
+Difference b/w parameter and argument
+
+Parameter
+A parenthetical variable in a function or constructor declaration (e.g.: in int methodOne(int x), the parameter is int x). 
+
+Argument
+The actual value of a parameter (e.g.: in methodOne(5), the argument passed as variable x is 5). 
+
+
+//Day 5 Loops
+
+Unlabeled Break
+You may recall break; from our previous discussion of Switch Statements. It will break you out of a loop even if the loop's termination condition still holds true. 
+
+do{
+    // this will execute once
+    // it will execute again each time while(condition) is true
+} while(condition);
+
+
+int min = 0;
+int max = 4;
+while(min < max){
+    System.out.println(min++);
+}
+
+
+
+
+
+//Day 6
+
+char myChar = 'c'; // create char c
+System.out.println("The ASCII value of " + myChar + " is: " + (int) myChar);
+Output:
+The ASCII value of c is: 99
+
+Observe the (int) before the variable name in the code above. This is called explicit casting, which is a method of representing one thing as another. Putting a data type inside parentheses right before a variable is essentially saying: "The next thing after this should be represented as this data type". Casting only works for certain types of relationships, such as between primitives or objects that inherit from another class. 
+
+To break a String down into its component characters, you can use the String.toCharArray method. For example, this code:
+String myString = "This is String example.";
+char[] myCharArray = myString.toCharArray();
+for(int i = 0; i < myString.length(); i++){
+    // Print each sequential character on the same line
+    System.out.print(myCharArray[i]); 
+}
+// Print a newline
+System.out.println(); 
+produces this output:
+This is String example.
+Notice that we were able to simulate printing myString by instead printing each individual character in the character array, myCharArray, created from myString.
+
+
+// Day 7 Arrays
+
+// the number of elements we want to hold
+final int _arraySize = 4; 
+
+// our array declaration
+String[] stringArray = new String[_arraySize]; 
+
+for(int i = 0; i < _arraySize; i++) {
+    // assign value to index i
+    stringArray[i] = "This is stored in index " + i; 
+    
+    // print value saved in index i
+    System.out.println(stringArray[i]); 
+}
+
+Note: The final keyword used in the code above is a means of protecting the variable's value by locking it to its initialized value. Any attempt to reassign (overwrite) the value of a final variable will generate an error.
+
+
+ Scanner in = new Scanner(System.in);
+        int n = in.nextInt();
+        int[] arr = new int[n];
+        for(int i=0; i < n; i++){
+            arr[i] = in.nextInt();
+        }
+        in.close();
+
+
+        use in.close 
+
+
+//Day 8 Dictionaries and Maps
+
+Java Maps
+Map is an interface that provides a blueprint for data structures that take  (key, value) pairs and map keys to their associated values (it's important to note that both the key and the  value must be Objects and not primitives). The implementation is done by implementing classes such as HashMap or LinkedHashMap. Consider the following code:
+
+// Declare a String to String map
+Map<String, String> myMap; 
+
+// Initialize it as a new String to String HashMap
+myMap = new HashMap<String, String>();  
+
+// Change myMap to be a new (completely different) String to String LinkedHashMap instead
+myMap = new LinkedHashMap<String, String>(); 
+
+
+
+
+Here are a few Map methods you will find helpful for this challenge:
+* containsKey(Object key): Returns true if the map contains a mapping for key; returns false if there is no such mapping.
+* get(Object key): Returns the value to which the key is mapped; returns null if there is no such mapping.
+* put(K key, V value): Adds the (Key, Value) mapping to the Map; if the key  is already in the map, the  is overwritten.
+
+he code below:
+// Create a Map of String Keys to String Values, implemented by the HashMap class
+Map<String,String> myMap = new HashMap<String,String>(); 
+    
+// Adds ("Hi","Bye") mapping to myMap
+myMap.put("Hi", "Bye"); 
+
+// Print the Value mapped to from "Hi"
+System.out.println(myMap.get("Hi")); 
+
+// Replaces "Bye" mapping from "Hi" with "Bye!" 
+myMap.put("Hi", "Bye!"); 
+
+// Print the Value mapped to from "Hi"
+System.out.println(myMap.get("Hi")); 
+produces the following output:
+Bye
+Bye!
+It is not necessary to declare myMap as type Map; you can certainly declare it as a HashMap (the instantiated type).
+
+
+// Day 9 Recursion
+
+Recursion
+This is an algorithmic concept that involves splitting a problem into two parts: a base case and a recursive case. The problem is divided into smaller subproblems which are then solved recursively until such time as they are small enough and meet some base case; once the base case is met, the solutions for each subproblem are combined and their result is the answer to the entire problem.
+If the base case is not met, the function's recursive case calls the function again with modified values. The code must be structured in such a way that the base case is reachable after some number of iterations, meaning that each subsequent modified value should bring you closer and closer to the base case; otherwise, you'll be stuck in the dreaded infinite loop!
+Example
+The code below produces the multiple of two numbers by combining addition and recursion:
+// Multiply 'n' by 'k' using addition:
+private static int nTimesK(int n, int k) {
+    System.out.println("n: " + n);
+    // Recursive Case
+    if(n > 1) { 
+        return k + nTimesK(n - 1, k);
+    }
+    // Base Case n = 1
+    else { 
+        return k;
+    }
+}
+public static void main(String[] args) {
+    int result = nTimesK(4, 4);
+    System.out.println("Result: " + result);
+}
+When executed, this code prints:
+n: 4
+n: 3
+n: 2
+n: 1
+Result: 16
+
+
+//Day 10 Binary Numbers
+
+Binary to Decimal Conversion
+
+To convert an integer from decimal to binary, repeatedly divide your base- number, , by . The dividend at each step  should be the result of the integer division at each step . The remainder at each step of division is a single digit of the binary equivalent of ; if you then read each remainder in order from the last remainder to the first (demonstrated below), you have the entire binary number.
+For example: . After performing the steps outlined in the above paragraph, the remainders form  (the binary equivalent of ) when read from the bottom up:
+ 
+ 
+This can be expressed in pseudocode as:
+while(n > 0):
+    remainder = n%2;
+    n = n/2;
+    Insert remainder to front of a list or push onto a stack
+
+Print list or stack
+
+//Day 11   2D  Arrays
+
+2D Arrays
+Also known as multidimensional arrays, they are very similar to the regular 1D Array data structure we've already discussed.
+Consider the following code:
+int rowSize = 2;
+int colSize = 4;
+int[][] myArray = new int[rowSize][colSize];
+This creates a  matrix where each element, , can be graphically represented as follows:
+(0, 0) (0, 1) (0, 2) (0, 3) 
+(1, 0) (1, 1) (1, 2) (1, 3) 
+You may find it helpful to think of these  elements in terms of real-world structures such as the cells in a spreadsheet table.
+To fill the array's cells with values, you can use a nested loop. The outer loop represents the matrix's rows and uses  as its variable, and the inner loop represents the matrix's columns and uses  as its variable. The code below assigns the value of  to each element in the 2D array we declared previously:
+int count = 0;
+
+for(int i = 0; i < rowSize; i++) {
+
+    for(int j = 0; j < colSize; j++, count++) {
+        myArray[i][j] = count;
+    }
+}
+If we print the contents of each row:
+for(int i = 0; i < rowSize; i++) {
+
+    // print the row of space-separated values
+    for(int j = 0; j < colSize; j++) {
+        System.out.print(myArray[i][j] + " ");
+    }
+    // end of row is reached, print newline
+    System.out.println();
+}
